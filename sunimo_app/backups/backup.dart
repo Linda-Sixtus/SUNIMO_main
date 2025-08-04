@@ -147,3 +147,207 @@ class SunimoBgImage extends StatelessWidget {
     return Stack(children: roomInteriors);
   }
 }
+
+
+
+//Hausaufgabe_sicherung
+
+
+
+import 'package:flutter/material.dart';
+import 'package:flutter_lorem/flutter_lorem.dart';
+
+class PageTut extends StatelessWidget {
+  const PageTut({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    double iconTextSpacing = 8;
+    return Scaffold(
+      backgroundColor: Color(0xFFF2F5F4),
+      appBar: AppBar(title: Center(child: const Text("Flutter layout demo"))),
+      body: Column(
+        children: [
+          Image.asset("assets/dummys/dummy_image_5.jpg"),
+          Padding(
+            padding: EdgeInsets.all(24),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  spacing: 8,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Oeschinen Lake Campground",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Kandersteg, Switzerland",
+                      style: TextStyle(
+                        letterSpacing: 1,
+                        color: Colors.black.withValues(alpha: 2 / 3),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  spacing: 4,
+                  children: [
+                    Icon(Icons.star, color: Color(0xFFEE0000)),
+                    Text("42"),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            spacing: 48,
+            children: [
+              Padding(
+                padding: EdgeInsetsGeometry.all(16),
+                child: Column(
+                  spacing: iconTextSpacing,
+                  children: [
+                    Icon(Icons.phone, color: Colors.deepPurple),
+                    Text("CALL", style: TextStyle(color: Colors.deepPurple)),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsGeometry.all(16),
+                child: Column(
+                  spacing: iconTextSpacing,
+                  children: [
+                    Icon(Icons.send, color: Colors.deepPurple),
+                    Text("ROUTE", style: TextStyle(color: Colors.deepPurple)),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsGeometry.all(16),
+                child: Column(
+                  spacing: iconTextSpacing,
+                  children: [
+                    Icon(Icons.share, color: Colors.deepPurple),
+                    Text("SHARE", style: TextStyle(color: Colors.deepPurple)),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.all(32.0),
+            child: Expanded(
+              child: Column(children: [Text(lorem(paragraphs: 2, words: 60))]),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+//Hausaufgabe_screen_bauen_2
+
+import 'package:flutter/material.dart';
+import 'package:flutter_lorem/flutter_lorem.dart';
+
+class PageTut extends StatelessWidget {
+  const PageTut({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    double iconTextSpacing = 8;
+    return Scaffold(
+      backgroundColor: Color(0xFFF2F5F4),
+      appBar: AppBar(title: Center(child: const Text("Flutter layout demo"))),
+      body: Column(
+        children: [
+          Image.asset("assets/dummys/dummy_image_5.jpg"),
+          Padding(
+            padding: EdgeInsets.all(24),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  spacing: 8,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Oeschinen Lake Campground",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Kandersteg, Switzerland",
+                      style: TextStyle(
+                        letterSpacing: 1,
+                        color: Colors.black.withValues(alpha: 2 / 3),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  spacing: 4,
+                  children: [
+                    Icon(Icons.star, color: Color(0xFFEE0000)),
+                    Text("42"),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            spacing: 48,
+            children: [
+              Padding(
+                padding: EdgeInsetsGeometry.all(16),
+                child: Column(
+                  spacing: iconTextSpacing,
+                  children: [
+                    Icon(Icons.phone, color: Colors.deepPurple),
+                    Text("CALL", style: TextStyle(color: Colors.deepPurple)),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsGeometry.all(16),
+                child: Column(
+                  spacing: iconTextSpacing,
+                  children: [
+                    Icon(Icons.send, color: Colors.deepPurple),
+                    Text("ROUTE", style: TextStyle(color: Colors.deepPurple)),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsGeometry.all(16),
+                child: Column(
+                  spacing: iconTextSpacing,
+                  children: [
+                    Icon(Icons.share, color: Colors.deepPurple),
+                    Text("SHARE", style: TextStyle(color: Colors.deepPurple)),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.all(32.0),
+            child: Expanded(
+              child: Column(children: [Text(lorem(paragraphs: 2, words: 60))]),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

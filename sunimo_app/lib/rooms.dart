@@ -102,15 +102,6 @@ class SunimoBgImage extends StatelessWidget {
     }
 
     // Otherwise, display an image with the given image name
-
-    /* return Image.asset(
-      bgImagePath,
-      fit: BoxFit.none,
-      width: double.infinity,
-      height: double.infinity,
-      alignment: Alignment.center,
-    );*/
-
     List<Widget> roomInteriors = [
       Image.asset(
         bgImagePath,

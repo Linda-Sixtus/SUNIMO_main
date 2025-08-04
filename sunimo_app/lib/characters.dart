@@ -26,7 +26,7 @@ class Sunimo {
         child: SizedBox(
           child: appearance
         ),
-      );;
+      );
   }
 
 }
