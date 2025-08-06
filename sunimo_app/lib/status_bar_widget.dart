@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class StatusBarWidget extends StatelessWidget {
   final String name;
-  final int value;
-  final int max;
+  final double value;
+  final double max;
   final Color color;
 
   const StatusBarWidget(
@@ -12,7 +12,7 @@ class StatusBarWidget extends StatelessWidget {
       super.key, 
       required this.color,
       this.value = 0,
-      this.max = 0
+      this.max = 100
     }
   );
 
@@ -37,7 +37,7 @@ class StatusBarWidget extends StatelessWidget {
               child: Container(
                 alignment: Alignment.center,
                 child: Text(name, style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 14,
                     color: const Color.fromARGB(255, 120, 74, 138),
                     fontWeight: FontWeight.w400,
                   )

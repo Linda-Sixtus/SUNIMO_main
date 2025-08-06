@@ -6,23 +6,36 @@ class Sunimo {
   int age = 0;
   Widget? appearance;  // Look alike (currently)
 
+
+  double gesundheit;
+  double hunger;
+  double hygiene;
+  double notdurft;
+  double zuneigung;
+
   // Stats kommen hier auch rein, Gefühle etc.
 
 
-  Sunimo(this.name);
+  Sunimo(this.name, {
+    this.gesundheit = 100,
+    this.hunger = 5,
+    this.hygiene = 100,
+    this.notdurft = 0,
+    this.zuneigung = 50
+  });
 
-  incAge() {
+  void incAge() {
     age++;
   }
 
-  setAppearance(Widget? appearance) {
+  void setAppearance(Widget? appearance) {
     this.appearance = appearance;
   }
-
-  getAppearance() {
+// Here is the position of the SUNIMO
+  Widget getAppearance() {
     return Positioned(
-        left: 20,
-        top: 470,
+        left: 50,
+        top: 580,
         child: SizedBox(
           child: appearance
         ),

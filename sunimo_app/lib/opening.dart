@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import "sunimo_bg_stack.dart";
+import 'interiors.dart';
+
 
 class SplashBgImage extends StatelessWidget {
   final Widget child;
@@ -37,6 +38,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Stack(
           children: [
+            bg.interior,
             Padding(
             padding: EdgeInsets.all(25),
             child: Column(

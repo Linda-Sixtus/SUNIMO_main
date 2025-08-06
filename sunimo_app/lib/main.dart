@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:sunimo_app/status_bar_widget.dart';
+import 'package:sunimo_app/sunimo_stats.dart';
 import 'rooms.dart';
 import 'characters.dart';
-import 'opening.dart';
-import 'sunimo_bg_stack.dart';
 
 List<RoomInterior> roomInteriors = [];
 
-Sunimo? ai;
+Sunimo ai = Sunimo("Nameless");
 
 void main() {
 
-  ai = Sunimo ("Ai");
-  ai?.setAppearance( 
+  ai = Sunimo ("Ai", gesundheit: 90, hunger: 70, notdurft: 44);
+  ai.setAppearance( 
       Image.asset("assets/SUNIMO_MOTHER_Al.png")
   );
 
@@ -38,11 +35,12 @@ class SunimoApp extends StatelessWidget {
       //  resizeToAvoidBottomInset: true,
         //  backgroundColor: Colors.transparent,
         body: 
-        
-          SunimoRoomBuilderStack('Raum 1',
+
+          RoomBuilder(rooms["Raum 1"] ?? Room(name: "no room", interiors: []),
+            key: null,
             children: [
               // MyHomePage(title: title),
-              ai?.getAppearance() ?? Text("Ai is not at home"),
+              ai.getAppearance(),
               TopButtonLayer(),
               ButtonLayer(),
 
@@ -193,12 +191,20 @@ class TopButtonLayer extends StatelessWidget {
       children: [
         SizedBox(height: 20),
         Padding(
-          padding: EdgeInsets.only(top: 50, left: 20, right: 20),
+          padding: EdgeInsets.only(top: 50, left: 20, right: 20, bottom:0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               InkWell(
-                onTap: () {},
+                onTap: () {
+
+                    // Test
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SunimoStats(sunimo: ai))
+                    );
+
+                },
                 child: Image.asset(
                   'assets/HOMEBUTTON.png',
                   width: 100,
@@ -207,7 +213,11 @@ class TopButtonLayer extends StatelessWidget {
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+
+                
+
+                },
                 child: Image.asset(
                   'assets/MENUBUTTON_Anim_klick.png',
                   width: 100,
