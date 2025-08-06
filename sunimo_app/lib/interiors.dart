@@ -26,13 +26,14 @@ RoomInterior plant = RoomInterior(
 
 RoomInterior windowDay = RoomInterior(
   "Fenster (Tag)",
-  interior: Image.asset(
+  interior:  Image.asset(
         "assets/Fenster_MOTHER_Day.png"
-      ),
-  x: 100,
-  y: 150,
+  ),
+  x: 10,
+  y: 160,
   width: 200,
-  height: 200,
+  height: 180,
+  centered: true,
 );
 
 RoomInterior curtain = RoomInterior(
@@ -40,10 +41,11 @@ RoomInterior curtain = RoomInterior(
   interior: Image.asset(
         "assets/Vorhang_blau_MOTHER.png"
       ),
-  x: 90,
-  y: 140,
+  x: 10,
+  y: 180,
   width: 220,
-  height: 220,
+  height: 200,
+  centered: true,
 );
 
 RoomInterior rug = RoomInterior(

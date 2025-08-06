@@ -89,18 +89,5 @@ flutter:
   # see https://flutter.dev/to/font-from-package
 
   assets:
-    - assets/Ei.png
-    - assets/opening_BG.png
-    - assets/HOMEBUTTON.png
-    - assets/MENUBUTTON_Anim_klick.png
-    - assets/Schaufel_Icon.png
-    - assets/Bürste_Icon.png
-    - assets/Napf_Icon.png
-    - assets/MAINHOME_vorlage_RAUM1_Tapete_sugar_rune.png
-    - assets/Schrank_weiss_MOTHER.png
-    - assets/PLANT_Monstera_hole.png
-    - assets/PLANT_Monstera_norm.png
-    - assets/Fenster_MOTHER_Day.png
-    - assets/Vorhang_blau_MOTHER.png
-    - assets/teppich_lila_MOTHER.png
-    - assets/SUNIMO_MOTHER_Al.png
+    - ./assets/
+

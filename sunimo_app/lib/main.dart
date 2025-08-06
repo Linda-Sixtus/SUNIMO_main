@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:sunimo_app/status_bar_widget.dart';
 import 'rooms.dart';
 import 'characters.dart';
+import 'opening.dart';
+import 'sunimo_bg_stack.dart';
 
 List<RoomInterior> roomInteriors = [];
 
@@ -15,7 +19,6 @@ void main() {
 
   runApp(const SunimoApp(title: 'SunimoApp'));
 }
-
 class SunimoApp extends StatelessWidget {
   const SunimoApp({super.key, required this.title});
   final String title;
@@ -23,26 +26,35 @@ class SunimoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      
       debugShowCheckedModeBanner: false,
       title: 'Sunimo',
-      theme: ThemeData(
-        //colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
+     // theme: ThemeData(
+     //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+     // ),
       home: Scaffold(
+       // extendBody: true,
+      //  extendBodyBehindAppBar: true,
+      //  resizeToAvoidBottomInset: true,
         //  backgroundColor: Colors.transparent,
-        body: Stack(
-          children: [
-            SunimoBgImage('Raum 1'),
-            MyHomePage(title: title),
-            ai?.getAppearance() ?? Text("Ai is not at home"),
-            TopButtonLayer(),
-            ButtonLayer(),
-          ],
-        ),
-      ),
-    );
+        body: 
+        
+          SunimoRoomBuilderStack('Raum 1',
+            children: [
+              // MyHomePage(title: title),
+              ai?.getAppearance() ?? Text("Ai is not at home"),
+              TopButtonLayer(),
+              ButtonLayer(),
+
+              // SplashBgImage(child: SplashScreen(title: "Fluxi"))
+            ]
+          )
+            
+      )
+            ); 
   }
-}
+}   
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -64,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class ButtonLayer extends StatelessWidget {
-  const ButtonLayer({super.key});
+const ButtonLayer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -78,8 +90,12 @@ class ButtonLayer extends StatelessWidget {
               color: Colors.white.withOpacity(0.8),
               borderRadius: BorderRadius.circular(18),
               border: Border.all(
-                color: const Color.fromARGB(255, 95, 30, 91).withOpacity(0.2),
-                width: 2,
+                color: const Color.fromARGB( 
+                  255,
+                  220, 
+                  187, 
+                  239).withOpacity(1.0),
+                width: 3,
               ),
             ),
             child: Padding(
@@ -90,15 +106,15 @@ class ButtonLayer extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      padding: EdgeInsetsGeometry.all(15),
+                      padding: EdgeInsetsGeometry.all(4),
                       side: BorderSide(
                         color: const Color.fromARGB(
-                          255,
-                          95,
-                          30,
-                          91,
-                        ).withOpacity(0.2),
-                        width: 2,
+                           255,
+                          220, 
+                          187, 
+                          239
+                        ).withOpacity(1.0),
+                        width: 3,
                       ),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18),
@@ -107,22 +123,22 @@ class ButtonLayer extends StatelessWidget {
                     onPressed: () {},
                     child: Image(
                       image: AssetImage('assets/Schaufel_Icon.png'),
-                      width: 70,
-                      height: 50,
+                      width: 78,
+                      height: 78,
                     ),
                   ),
-                  SizedBox(width: 10),
+                  SizedBox(width: 16),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      padding: EdgeInsetsGeometry.all(15),
+                      padding: EdgeInsetsGeometry.all(4),
                       side: BorderSide(
                         color: const Color.fromARGB(
                           255,
-                          95,
-                          30,
-                          91,
-                        ).withOpacity(0.2),
-                        width: 2,
+                          220, 
+                          187, 
+                          239
+                        ).withOpacity(1.0),
+                        width: 3,
                       ),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18),
@@ -130,23 +146,23 @@ class ButtonLayer extends StatelessWidget {
                     ),
                     onPressed: () {},
                     child: Image(
-                      image: AssetImage('assets/Bürste_Icon.png'),
-                      width: 70,
-                      height: 50,
+                      image: AssetImage("assets/Bürste_Icon.png"),
+                      width: 78,
+                      height:78,
                     ),
                   ),
-                  SizedBox(width: 10),
+                  SizedBox(width: 16),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      padding: EdgeInsetsGeometry.all(15),
+                      padding: EdgeInsetsGeometry.all(4),
                       side: BorderSide(
                         color: const Color.fromARGB(
                           255,
-                          95,
-                          30,
-                          91,
-                        ).withOpacity(0.2),
-                        width: 2,
+                          220, 
+                          187, 
+                          239
+                        ).withOpacity(1.0),
+                        width: 3,
                       ),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18),
@@ -155,8 +171,8 @@ class ButtonLayer extends StatelessWidget {
                     onPressed: () {},
                     child: Image(
                       image: AssetImage('assets/Napf_Icon.png'),
-                      width: 70,
-                      height: 50,
+                      width: 78,
+                      height: 78,
                     ),
                   ),
                 ],
@@ -202,6 +218,18 @@ class TopButtonLayer extends StatelessWidget {
             ],
           ),
         ),
+       /* StatusBarWidget(
+          "Fluxi", 
+          color: const Color.fromARGB(255, 36, 217, 184),
+          value: 30,
+          max: 100,
+        ),
+         StatusBarWidget(
+          "Gerry", 
+          color: const Color.fromARGB(255, 72, 30, 226),
+          value: 80,
+          max: 100,
+        ),*/
       ],
     );
   }
