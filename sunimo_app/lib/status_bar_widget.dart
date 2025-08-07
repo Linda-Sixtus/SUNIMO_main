@@ -37,7 +37,7 @@ class StatusBarWidget extends StatelessWidget {
               child: Container(
                 alignment: Alignment.center,
                 child: Text(name, style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 13,
                     color: const Color.fromARGB(255, 120, 74, 138),
                     fontWeight: FontWeight.w400,
                   )

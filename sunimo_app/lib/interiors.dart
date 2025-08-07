@@ -3,9 +3,10 @@ import 'rooms.dart';
 
 RoomInterior schrank = RoomInterior(
   "Schrank",
-  interior: Image.asset(
-        "assets/Schrank_weiss_MOTHER.png"
-      ),
+  interior:
+     Image.asset(
+         "assets/Schrank_weiss_MOTHER.png"
+     ),
   x: 90,
   y: 500,
  // width: 300,

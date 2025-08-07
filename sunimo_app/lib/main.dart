@@ -2,18 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:sunimo_app/sunimo_stats.dart';
 import 'rooms.dart';
 import 'characters.dart';
+import 'menue.dart';
 
 List<RoomInterior> roomInteriors = [];
 
-Sunimo ai = Sunimo("Nameless");
-
 void main() {
-
-  ai = Sunimo ("Ai", gesundheit: 90, hunger: 70, notdurft: 44);
-  ai.setAppearance( 
-      Image.asset("assets/SUNIMO_MOTHER_Al.png")
-  );
-
   runApp(const SunimoApp(title: 'SunimoApp'));
 }
 class SunimoApp extends StatelessWidget {
@@ -215,7 +208,10 @@ class TopButtonLayer extends StatelessWidget {
               InkWell(
                 onTap: () {
 
-                
+                 Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Menue(sunimo: ai))
+                    );
 
                 },
                 child: Image.asset(

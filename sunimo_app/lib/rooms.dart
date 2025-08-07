@@ -52,7 +52,14 @@ class RoomInterior {
   double? x, y, width, height;
   bool centered = false;
 
-  RoomInterior(this.name, {required this.interior, this.x, this.y, this.width, this.height, this.centered = false});
+  RoomInterior(this.name, {
+    required this.interior, 
+    this.x, 
+    this.y, 
+    this.width, 
+    this.height, 
+    this.centered = false,
+    });
   Widget getInteriorLayout() {
     if (!centered) {
       return Container(
