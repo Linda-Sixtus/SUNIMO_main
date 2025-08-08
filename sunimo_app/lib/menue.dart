@@ -27,16 +27,23 @@ class Menue extends StatelessWidget{
             child: Center(
               child: Column(
                 children: [
-                SizedBox(height: 100,),
+                Container(   
+                  height: 60,
+                  width: 500,           
+                  decoration: BoxDecoration(color: Color.fromARGB(255, 255, 255, 255).withAlpha(255),
+                  ),
+                    ),
+                SizedBox(
+                  height: 30),
                 MenueCard(
                   title: "Menue", 
                   imageButton: Image(
-                    alignment: Alignment.centerRight,
-                    image: AssetImage('assets/BACKBUTTON.png'),
-                    width: 78,
-                    height: 78,
+                  alignment: Alignment.centerRight,
+                  image: AssetImage('assets/BACKBUTTON.png'),
+                  width: 78,
+                  height: 78,
                   ),
-                 onClick: () => {
+                  onClick: () => {
                     Navigator.pop(context)
                   },
                 ),
@@ -46,25 +53,19 @@ class Menue extends StatelessWidget{
                   ),
                   MenueCard(
                   title: "Sunimo", 
-                 
                  onClick: () {
-
-                
                  Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => SunimoStats(sunimo: ai))
-                    );
-
+                      );
                 },
                 ),
                 MenueCard(
                   title: "Settings", 
-                  
                  onClick: () => {
-                     Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Inventory()))
-                    
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Inventory()))
                   },
                 ),
                  MenueCard(
@@ -73,7 +74,6 @@ class Menue extends StatelessWidget{
                     Navigator.pop(context)
                   },
                 ),
-                
               ],
             )
       )

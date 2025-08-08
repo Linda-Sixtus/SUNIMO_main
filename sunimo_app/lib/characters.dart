@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 
-
 class Sunimo {
   String name;
   int age = 1;
   Widget? appearance;  // Look alike (currently)
-
-
   double gesundheit;
   double hunger;
   double hygiene;
@@ -15,8 +12,6 @@ class Sunimo {
   double maxAge;
 
   // Stats kommen hier auch rein, Gefühle etc.
-
-
   Sunimo(this.name, {
     this.gesundheit = 100,
     this.hunger = 5,
@@ -26,11 +21,9 @@ class Sunimo {
     this.maxAge = 1000,
     this.appearance,  // may change dynamically how you treat it
   });
-
   void incAge() {
     age++;
   }
-
   void setAppearance(Widget? appearance) {
     this.appearance = appearance;
   }
@@ -44,9 +37,6 @@ class Sunimo {
         ),
       );
   }
-
 }
-
-
-  Sunimo ai = Sunimo ("Ai", gesundheit: 90, hunger: 70, notdurft: 44, appearance: Image.asset("assets/SUNIMO_MOTHER_Al.png"));
+Sunimo ai = Sunimo ("Ai", gesundheit: 90, hunger: 70, notdurft: 44, appearance: Image.asset("assets/SUNIMO_MOTHER_Al.png"));
   

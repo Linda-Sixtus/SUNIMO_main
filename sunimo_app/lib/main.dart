@@ -16,7 +16,6 @@ class SunimoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      
       debugShowCheckedModeBanner: false,
       title: 'Sunimo',
      // theme: ThemeData(
@@ -28,7 +27,6 @@ class SunimoApp extends StatelessWidget {
       //  resizeToAvoidBottomInset: true,
         //  backgroundColor: Colors.transparent,
         body: 
-
           RoomBuilder(rooms["Raum 1"] ?? Room(name: "no room", interiors: []),
             key: null,
             children: [
@@ -36,11 +34,9 @@ class SunimoApp extends StatelessWidget {
               ai.getAppearance(),
               TopButtonLayer(),
               ButtonLayer(),
-
               // SplashBgImage(child: SplashScreen(title: "Fluxi"))
             ]
           )
-            
       )
             ); 
   }
@@ -152,7 +148,7 @@ const ButtonLayer({super.key});
                           220, 
                           187, 
                           239
-                        ).withOpacity(1.0),
+                        ).withValues(),
                         width: 3,
                       ),
                       shape: RoundedRectangleBorder(
@@ -190,52 +186,33 @@ class TopButtonLayer extends StatelessWidget {
             children: [
               InkWell(
                 onTap: () {
-
-                    // Test
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SunimoStats(sunimo: ai))
-                    );
-
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SunimoStats(sunimo: ai))
+                  );
                 },
                 child: Image.asset(
                   'assets/HOMEBUTTON.png',
                   width: 100,
-                  // height: 100,
                   alignment: Alignment.topLeft,
                 ),
               ),
               InkWell(
                 onTap: () {
-
-                 Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Menue(sunimo: ai))
-                    );
-
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Menue(sunimo: ai))
+                  );
                 },
                 child: Image.asset(
                   'assets/MENUBUTTON_Anim_klick.png',
                   width: 100,
-                  //S height: 100,
                   alignment: Alignment.topRight,
                 ),
               ),
             ],
           ),
         ),
-       /* StatusBarWidget(
-          "Fluxi", 
-          color: const Color.fromARGB(255, 36, 217, 184),
-          value: 30,
-          max: 100,
-        ),
-         StatusBarWidget(
-          "Gerry", 
-          color: const Color.fromARGB(255, 72, 30, 226),
-          value: 80,
-          max: 100,
-        ),*/
       ],
     );
   }
