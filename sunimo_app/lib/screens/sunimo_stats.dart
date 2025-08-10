@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sunimo_app/status_bar_widget.dart';
+import 'package:sunimo_app/widgets/status_bar_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sunimo_app/characters.dart';
+import 'package:sunimo_app/models/characters.dart';
 class SunimoStats extends StatelessWidget{
   final Sunimo sunimo;
   const SunimoStats({super.key, required this.sunimo});

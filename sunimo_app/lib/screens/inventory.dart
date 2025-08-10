@@ -118,7 +118,7 @@ class Inventory extends StatelessWidget {
                   ),
                 ),
               ),
-              Text("Hallo Fluxele <3"),
+              Text(""),  // HIer kommt der Seiteninhalt (Liste etc.)
             ],
           ),
         ),

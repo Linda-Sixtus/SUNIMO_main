@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'interiors.dart';
+import '../repositories/interiors.dart';
 
 // List of all rooms
 Map<String, Room> rooms = 

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sunimo_app/menue_card.dart';
-import 'package:sunimo_app/status_bar_widget.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:sunimo_app/characters.dart';
+import 'package:sunimo_app/screens/shop_category_page.dart';
+import 'package:sunimo_app/widgets/menue_card.dart';
+import 'package:sunimo_app/models/characters.dart';
 import 'sunimo_stats.dart';
 import 'inventory.dart';
 
@@ -71,7 +70,9 @@ class Menue extends StatelessWidget{
                  MenueCard(
                   title: "Shop", 
                   onClick: () => {
-                    Navigator.pop(context)
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ShopCategoryPage()))
                   },
                 ),
               ],

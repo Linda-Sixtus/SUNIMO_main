@@ -1,7 +1,5 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'interiors.dart';
+import '../repositories/interiors.dart';
 
 
 class SplashBgImage extends StatelessWidget {

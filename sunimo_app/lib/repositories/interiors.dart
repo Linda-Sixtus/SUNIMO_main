@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'rooms.dart';
+import '../models/rooms.dart';
 
 RoomInterior schrank = RoomInterior(
   "Schrank",

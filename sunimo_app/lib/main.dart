@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:sunimo_app/sunimo_stats.dart';
-import 'rooms.dart';
-import 'characters.dart';
-import 'menue.dart';
+import 'package:sunimo_app/screens/sunimo_stats.dart';
+import 'models/rooms.dart';
+import 'models/characters.dart';
+import 'screens/menue.dart';
 
 List<RoomInterior> roomInteriors = [];
 
@@ -109,7 +109,7 @@ const ButtonLayer({super.key});
                     ),
                     onPressed: () {},
                     child: Image(
-                      image: AssetImage('assets/Schaufel_Icon.png'),
+                      image: AssetImage('assets/items/Schaufel_Icon.png'),
                       width: 78,
                       height: 78,
                     ),
@@ -133,7 +133,7 @@ const ButtonLayer({super.key});
                     ),
                     onPressed: () {},
                     child: Image(
-                      image: AssetImage("assets/Bürste_Icon.png"),
+                      image: AssetImage("assets/items/Bürste_Icon.png"),
                       width: 78,
                       height:78,
                     ),
@@ -157,7 +157,7 @@ const ButtonLayer({super.key});
                     ),
                     onPressed: () {},
                     child: Image(
-                      image: AssetImage('assets/Napf_Icon.png'),
+                      image: AssetImage('assets/items/Napf_Icon.png'),
                       width: 78,
                       height: 78,
                     ),
