@@ -92,4 +92,5 @@ flutter:
   assets:
     - ./assets/
     - ./assets/items/
-
+    - ./assets/items/schaufeln/
+    - ./assets/items/raeume/

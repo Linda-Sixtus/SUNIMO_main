@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sunimo_app/widgets/shop_category_item.dart';
 import '../models/shop_category.dart';
+import 'products_repo.dart';
 
 class ShopCategoriesRepo {
 
@@ -15,11 +16,15 @@ class ShopCategoriesRepo {
       ShopCategory(categoryImage: Image.asset("assets/items/Ei_Icon.png"), categoryName: "Eier"),
   ];
 
+  ///   Generates a list of Category-Widgets from the defined Categories above 
   List<ShopCategoryItem> getCategoryItems() {
     
+    /// Start with an empty list of ShopCategoryItems (Widgets)
     List<ShopCategoryItem> categoryItems = [];
 
+    /// Go through each ShopCategory-Item from the categoires-list above...
     for (ShopCategory category in categories) {
+      /// ... and add its widget to the categoryItems-list
       categoryItems.add(
           ShopCategoryItem(category: category,)
       );
@@ -27,6 +32,12 @@ class ShopCategoriesRepo {
 
     return categoryItems;
   }
+
+  /// Gets the amount of products within the given category
+  int getProductCountOfCategory(ShopCategory category) {
+    return ProductsRepo().getProductsFromCategory(category)?.length ?? 0;
+  }
+
 }
 
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sunimo_app/models/shop_category.dart';
+import 'package:sunimo_app/screens/shop_sparte.dart';
 
 class ShopCategoryItem extends StatelessWidget {
   final ShopCategory category;
@@ -48,12 +49,22 @@ class ShopCategoryItem extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(18))
             ),
             child: 
-            Text(category.categoryName, 
-            style: GoogleFonts.inter(
-              fontSize: 40, 
-              fontWeight: FontWeight.w700, 
-              color: Color.fromARGB(255, 102, 58, 122) 
+            InkWell(
+              child: Text(category.categoryName, 
+              style: GoogleFonts.inter(
+                fontSize: 40, 
+                fontWeight: FontWeight.w700, 
+                color: Color.fromARGB(255, 102, 58, 122) 
+                ),
               ),
+              onTap: () {
+                 Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ShopSparte(category: category),
+                    ),
+                  );
+              },
             )
           ),
          

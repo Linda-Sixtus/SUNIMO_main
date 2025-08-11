@@ -1,16 +1,21 @@
-# sunimo_app
+# Sunimo
 
-A new Flutter project.
+Willkommen in der Welt der Sunimo
 
-## Getting Started
+## Was ist Sunimo
 
-This project is a starting point for a Flutter application.
+Außerirdische Wesen kommen auf die Erde direkt zu Dir. Um diesen Wesen ein schönes Leben zu ermöglichen, haben Sie Dich auserkoren, sich um diese zu kümmern. 
 
-A few resources to get you started if this is your first Flutter project:
+## Aktueller Stand
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+**Klickdummy**
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Vorhandene Vorschau-Screens:
+
+- Hauptscreen
+- Statusbildschirm des Sunimo
+- Shop-Kategorieseite
+- Shop-Produkte für die Kategorien "Räume" und "Schaufeln"
+- Settings: Zeigt momentan das aktuelle Inventar (aktuell leer)
+
+

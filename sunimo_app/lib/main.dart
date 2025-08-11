@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sunimo_app/screens/sunimo_stats.dart';
 import 'models/rooms.dart';
 import 'models/characters.dart';
@@ -9,6 +10,7 @@ List<RoomInterior> roomInteriors = [];
 void main() {
   runApp(const SunimoApp(title: 'SunimoApp'));
 }
+
 class SunimoApp extends StatelessWidget {
   const SunimoApp({super.key, required this.title});
   final String title;
@@ -18,30 +20,32 @@ class SunimoApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Sunimo',
-     // theme: ThemeData(
-     //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-     // ),
+      theme: ThemeData(
+         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+         textTheme: TextTheme(
+            bodyMedium: GoogleFonts.inter(),
+         )
+      ),
       home: Scaffold(
-       // extendBody: true,
-      //  extendBodyBehindAppBar: true,
-      //  resizeToAvoidBottomInset: true,
+        // extendBody: true,
+        //  extendBodyBehindAppBar: true,
+        //  resizeToAvoidBottomInset: true,
         //  backgroundColor: Colors.transparent,
-        body: 
-          RoomBuilder(rooms["Raum 1"] ?? Room(name: "no room", interiors: []),
-            key: null,
-            children: [
-              // MyHomePage(title: title),
-              ai.getAppearance(),
-              TopButtonLayer(),
-              ButtonLayer(),
-              // SplashBgImage(child: SplashScreen(title: "Fluxi"))
-            ]
-          )
-      )
-            ); 
+        body: RoomBuilder(
+          rooms["Raum 1"] ?? Room(name: "no room", interiors: []),
+          key: null,
+          children: [
+            // MyHomePage(title: title),
+            ai.getAppearance(),
+            TopButtonLayer(),
+            ButtonLayer(),
+            // SplashBgImage(child: SplashScreen(title: "Fluxi"))
+          ],
+        ),
+      ),
+    );
   }
-}   
-
+}
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -63,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class ButtonLayer extends StatelessWidget {
-const ButtonLayer({super.key});
+  const ButtonLayer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -77,11 +81,7 @@ const ButtonLayer({super.key});
               color: Colors.white.withOpacity(0.8),
               borderRadius: BorderRadius.circular(18),
               border: Border.all(
-                color: const Color.fromARGB( 
-                  255,
-                  220, 
-                  187, 
-                  239).withOpacity(1.0),
+                color: const Color.fromARGB(255, 220, 187, 239,).withOpacity(1.0),
                 width: 3,
               ),
             ),
@@ -95,12 +95,7 @@ const ButtonLayer({super.key});
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsetsGeometry.all(4),
                       side: BorderSide(
-                        color: const Color.fromARGB(
-                           255,
-                          220, 
-                          187, 
-                          239
-                        ).withOpacity(1.0),
+                        color: const Color.fromARGB( 255, 220, 187, 239,).withOpacity(1.0),
                         width: 3,
                       ),
                       shape: RoundedRectangleBorder(
@@ -119,12 +114,7 @@ const ButtonLayer({super.key});
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsetsGeometry.all(4),
                       side: BorderSide(
-                        color: const Color.fromARGB(
-                          255,
-                          220, 
-                          187, 
-                          239
-                        ).withOpacity(1.0),
+                        color: const Color.fromARGB( 255, 220, 187, 239,).withOpacity(1.0),
                         width: 3,
                       ),
                       shape: RoundedRectangleBorder(
@@ -135,7 +125,7 @@ const ButtonLayer({super.key});
                     child: Image(
                       image: AssetImage("assets/items/Bürste_Icon.png"),
                       width: 78,
-                      height:78,
+                      height: 78,
                     ),
                   ),
                   SizedBox(width: 16),
@@ -143,12 +133,7 @@ const ButtonLayer({super.key});
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsetsGeometry.all(4),
                       side: BorderSide(
-                        color: const Color.fromARGB(
-                          255,
-                          220, 
-                          187, 
-                          239
-                        ).withValues(),
+                        color: const Color.fromARGB( 255, 220, 187, 239,).withValues(),
                         width: 3,
                       ),
                       shape: RoundedRectangleBorder(
@@ -180,15 +165,17 @@ class TopButtonLayer extends StatelessWidget {
       children: [
         SizedBox(height: 20),
         Padding(
-          padding: EdgeInsets.only(top: 50, left: 20, right: 20, bottom:0),
+          padding: EdgeInsets.only(top: 50, left: 20, right: 20, bottom: 0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               InkWell(
                 onTap: () {
                   Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SunimoStats(sunimo: ai))
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SunimoStats(sunimo: ai),
+                    ),
                   );
                 },
                 child: Image.asset(
@@ -200,8 +187,8 @@ class TopButtonLayer extends StatelessWidget {
               InkWell(
                 onTap: () {
                   Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Menue(sunimo: ai))
+                    context,
+                    MaterialPageRoute(builder: (context) => Menue(sunimo: ai)),
                   );
                 },
                 child: Image.asset(

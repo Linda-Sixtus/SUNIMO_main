@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sunimo_app/models/shop_category.dart';
+import 'package:sunimo_app/repositories/products_repo.dart';
 import 'package:sunimo_app/repositories/shop_categories_repo.dart';
+import 'package:sunimo_app/widgets/product_card_widget.dart';
 
-class ShopCategoryPage extends StatelessWidget {
-  const ShopCategoryPage({super.key});
+class ShopSparte extends StatelessWidget {
+  ShopSparte({super.key, required this.category});
+
+  ShopCategory category;
 
   @override
   Widget build(BuildContext context) {
@@ -94,12 +99,16 @@ class ShopCategoryPage extends StatelessWidget {
                       ),
                       Transform.translate(
                         offset: Offset(0, 5),
-                        child: Text(
-                          "    Shop    ",
-                          style: GoogleFonts.inter(
-                            color: Color.fromARGB(255, 80, 45, 96),
-                            fontSize: 46.5,
-                            fontWeight: FontWeight.w700,
+                        child: Container(
+                          padding: EdgeInsets.only(left: 15),
+                          width: 215,
+                          child: Text(
+                            category.categoryName,
+                            style: GoogleFonts.inter(
+                              color: Color.fromARGB(255, 80, 45, 96),
+                              fontSize: category.categoryName.length > 8 ? 37 : 46.5,
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
                         ),
                       ),
@@ -119,14 +128,23 @@ class ShopCategoryPage extends StatelessWidget {
                   ),
                 ),
               ),
-
               SizedBox(
-                height: 820,
-                width: double.infinity,
-                child: ListView(
-                  children: ShopCategoriesRepo().getCategoryItems(),
+                height: 834,
+                child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2, // 2 Spalten
+                    crossAxisSpacing: 10.0, // Horizontaler Abstand zwischen den Karten
+                    mainAxisSpacing: 10.0, // Vertikaler Abstand zwischen den Karten
+                    childAspectRatio: 0.75, // Seitenverhältnis der Karten (Breite / Höhe)
+                  ),
+                  itemCount: ShopCategoriesRepo().getProductCountOfCategory(category),
+                  itemBuilder: (context, index) {
+                    return ProductCardWidget(
+                      productItem: ProductsRepo().getProductByIndex(category, index),
+                    );
+                  },
                 ),
-              ),
+              ),  // HIer kommt der Seiteninhalt (Liste etc.)
             ],
           ),
         ),
