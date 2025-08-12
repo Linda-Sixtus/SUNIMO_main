@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:sunimo_app/widgets/product_card_widget.dart';
+import 'package:sunimo_app/repositories/products_database_interface.dart';
 import '../models/product.dart';
 import '../models/shop_category.dart';
 
-class ProductsRepo {
+class ProductsLocalRepo implements ProductsDatabaseInterface {
 
     Map<String, List<Product>> productPool = {
         "Räume": [
@@ -30,4 +30,21 @@ class ProductsRepo {
   Product? getProductByIndex(category, index) {
     return productPool[category.categoryName]?[index];
   }
+    @override
+  bool create(Product product){
+    return true;
+  }
+   @override
+  bool update(Product product){
+    return true;
+  }
+   @override
+  bool delete(String uniqueId){
+    return true;
+  }
+   @override
+  Product? getById(String uniqueId){
+    return null;
+  }
+
 }

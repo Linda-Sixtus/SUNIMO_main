@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sunimo_app/widgets/shop_category_item.dart';
 import '../models/shop_category.dart';
-import 'products_repo.dart';
+import 'products_local_repo.dart';
 
 class ShopCategoriesRepo {
 
@@ -35,7 +35,7 @@ class ShopCategoriesRepo {
 
   /// Gets the amount of products within the given category
   int getProductCountOfCategory(ShopCategory category) {
-    return ProductsRepo().getProductsFromCategory(category)?.length ?? 0;
+    return ProductsLocalRepo().getProductsFromCategory(category)?.length ?? 0;
   }
 
 }

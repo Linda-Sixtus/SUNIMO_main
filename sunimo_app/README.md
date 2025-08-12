@@ -10,12 +10,17 @@ Außerirdische Wesen kommen auf die Erde direkt zu Dir. Um diesen Wesen ein sch�
 
 **Klickdummy**
 
-Vorhandene Vorschau-Screens:
+### Vorhandene Vorschau-Screens:
 
 - Hauptscreen
 - Statusbildschirm des Sunimo
 - Shop-Kategorieseite
 - Shop-Produkte für die Kategorien "Räume" und "Schaufeln"
 - Settings: Zeigt momentan das aktuelle Inventar (aktuell leer)
+
+### Features
+
+- Database Interfaces
+- Prototypen REPO
 
 

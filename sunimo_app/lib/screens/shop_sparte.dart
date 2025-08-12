@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sunimo_app/models/shop_category.dart';
-import 'package:sunimo_app/repositories/products_repo.dart';
+import 'package:sunimo_app/repositories/products_local_repo.dart';
 import 'package:sunimo_app/repositories/shop_categories_repo.dart';
 import 'package:sunimo_app/widgets/product_card_widget.dart';
 
@@ -140,7 +140,7 @@ class ShopSparte extends StatelessWidget {
                   itemCount: ShopCategoriesRepo().getProductCountOfCategory(category),
                   itemBuilder: (context, index) {
                     return ProductCardWidget(
-                      productItem: ProductsRepo().getProductByIndex(category, index),
+                      productItem: ProductsLocalRepo().getProductByIndex(category, index),
                     );
                   },
                 ),

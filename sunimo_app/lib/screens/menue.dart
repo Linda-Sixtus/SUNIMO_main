@@ -9,9 +9,7 @@ import 'inventory.dart';
 
 class Menue extends StatelessWidget {
   final Sunimo? sunimo;
-  Menue({super.key, required this.sunimo});
-
-  final CharactersDatabaseInterface sunimoDb = CharactersLocalRepo();
+  const Menue({super.key, required this.sunimo});
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +55,7 @@ class Menue extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SunimoStats(sunimo: sunimoDb.getById("123")),
+                      builder: (context) => SunimoStats(sunimo: sunimo),
                     ),
                   );
                 },
