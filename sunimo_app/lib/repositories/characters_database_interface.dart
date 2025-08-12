@@ -1,5 +1,8 @@
 import '../models/characters.dart';
 
+
+
+///The same as an Interface cause of that the fitting classes need to implement it
 abstract class CharactersDatabaseInterface {
 
   /// Creates a new Sunimo in the DB. Returns true on success and false on failure

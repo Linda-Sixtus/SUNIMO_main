@@ -1,7 +1,7 @@
 import 'package:sunimo_app/repositories/characters_database_interface.dart';
 import '../models/characters.dart';
 
-class CharactersDbRepo extends CharactersDatabaseInterface {
+class CharactersDbRepo implements CharactersDatabaseInterface {
 
     @override
     bool create(Sunimo sunimo) {

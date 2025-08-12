@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sunimo_app/repositories/characters_database_interface.dart';
 import '../models/characters.dart';
 
-class CharactersLocalRepo extends CharactersDatabaseInterface {
+class CharactersLocalRepo implements CharactersDatabaseInterface {
 
     List<Sunimo> sunimos = [
         Sunimo(
