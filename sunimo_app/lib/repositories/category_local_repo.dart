@@ -42,6 +42,7 @@ class CategoryLocalRepo implements CategoryDatabaseInterface {
         .firstWhere((category) => category != null, orElse: () => null);
     }
 
+    @override
     List<ShopCategory> getAll() {
       return categories;
     }

@@ -23,6 +23,7 @@ class CategoryDbRepo implements CategoryDatabaseInterface {
       return null;
     }
 
+    @override
     List<ShopCategory> getAll() {
       return [];
     }

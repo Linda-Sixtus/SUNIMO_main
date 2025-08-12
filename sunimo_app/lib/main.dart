@@ -91,10 +91,10 @@ class ButtonLayer extends StatelessWidget {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.8),
+              color: Colors.white.withAlpha(204),
               borderRadius: BorderRadius.circular(18),
               border: Border.all(
-                color: const Color.fromARGB(255, 220, 187, 239,),
+                color: const Color.fromARGB(255, 220, 187, 239),
                 width: 3,
               ),
             ),

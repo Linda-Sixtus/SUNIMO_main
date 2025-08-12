@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 void main (){
@@ -17,7 +15,7 @@ Widget build (BuildContext context){
   return MaterialApp(
    home:Scaffold(
 
-    body: Container(
+    body: SizedBox(
        width: double.infinity,
 
       child: Column(
@@ -126,12 +124,11 @@ class _IconSwapState extends State<IconSwap> {
 }
 
 class CheckText extends StatelessWidget {
-  String? headline;
-  String? subline;
-  bool? checked;
+  final String? headline;
+  final String? subline;
+  late bool? checked;  // Not immutable, but this is only a test
 
-
-  CheckText({
+ CheckText({
     super.key, this.headline, this.subline, this.checked,
   });
 
