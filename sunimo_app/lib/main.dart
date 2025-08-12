@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sunimo_app/repositories/characters_database_interface.dart';
+import 'package:sunimo_app/repositories/characters_local_repo.dart';
 import 'package:sunimo_app/screens/sunimo_stats.dart';
 import 'models/rooms.dart';
 import 'models/characters.dart';
@@ -8,15 +10,22 @@ import 'screens/menue.dart';
 List<RoomInterior> roomInteriors = [];
 
 void main() {
-  runApp(const SunimoApp(title: 'SunimoApp'));
+  runApp(SunimoApp(title: 'SunimoApp'));
 }
 
 class SunimoApp extends StatelessWidget {
-  const SunimoApp({super.key, required this.title});
+  SunimoApp({super.key, required this.title});
   final String title;
+
+  final CharactersDatabaseInterface sunimoRepo = CharactersLocalRepo();
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
+    /// For now, get the sunimo with the unique id "123" from the database
+    Sunimo? sunimo = sunimoRepo.getById("123");
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Sunimo',
@@ -36,7 +45,7 @@ class SunimoApp extends StatelessWidget {
           key: null,
           children: [
             // MyHomePage(title: title),
-            ai.getAppearance(),
+            sunimo?.getAppearance() ?? Container(),
             TopButtonLayer(),
             ButtonLayer(),
             // SplashBgImage(child: SplashScreen(title: "Fluxi"))
@@ -158,7 +167,11 @@ class ButtonLayer extends StatelessWidget {
 }
 
 class TopButtonLayer extends StatelessWidget {
-  const TopButtonLayer({super.key});
+
+  /// Use the local repo for now
+  CharactersDatabaseInterface sunimoRepo = CharactersLocalRepo();
+
+  TopButtonLayer({super.key});
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -174,7 +187,7 @@ class TopButtonLayer extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SunimoStats(sunimo: ai),
+                      builder: (context) => SunimoStats(sunimo: sunimoRepo.getById("123")),
                     ),
                   );
                 },
@@ -188,7 +201,7 @@ class TopButtonLayer extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Menue(sunimo: ai)),
+                    MaterialPageRoute(builder: (context) => Menue(sunimo: sunimoRepo.getById("123"))),
                   );
                 },
                 child: Image.asset(

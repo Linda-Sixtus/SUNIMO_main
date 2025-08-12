@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sunimo_app/repositories/characters_database_interface.dart';
+import 'package:sunimo_app/repositories/characters_local_repo.dart';
 import 'package:sunimo_app/screens/shop_category_page.dart';
 import 'package:sunimo_app/widgets/menue_card.dart';
 import 'package:sunimo_app/models/characters.dart';
@@ -6,8 +8,10 @@ import 'sunimo_stats.dart';
 import 'inventory.dart';
 
 class Menue extends StatelessWidget {
-  final Sunimo sunimo;
-  const Menue({super.key, required this.sunimo});
+  final Sunimo? sunimo;
+  Menue({super.key, required this.sunimo});
+
+  final CharactersDatabaseInterface sunimoDb = CharactersLocalRepo();
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +57,7 @@ class Menue extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SunimoStats(sunimo: ai),
+                      builder: (context) => SunimoStats(sunimo: sunimoDb.getById("123")),
                     ),
                   );
                 },

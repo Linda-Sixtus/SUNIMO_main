@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:sunimo_app/models/characters.dart';
 
 class SunimoStats extends StatelessWidget {
-  final Sunimo sunimo;
+  final Sunimo? sunimo;
   const SunimoStats({super.key, required this.sunimo});
 
   @override
@@ -50,7 +50,7 @@ class SunimoStats extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          sunimo.name,
+                          sunimo?.name ?? "Sunimo not found",
                           style: TextStyle(
                             //GoogleFonts.inter
                             //Hier noch fontstyle font und bold
@@ -114,7 +114,7 @@ class SunimoStats extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Text(
-                        sunimo.age == 1 ? "1 Tag" : "${sunimo.age} Tage",
+                        sunimo?.age == 1 ? "1 Tag" : "${sunimo?.age} Tage",
                         style: TextStyle(
                           color: const Color.fromARGB( 255, 94, 74, 121,).withAlpha(255),
                           fontSize: 17,
@@ -139,36 +139,36 @@ class SunimoStats extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 40),
-              sunimo.getAppearance(),
+              sunimo?.getAppearance() ?? Container(),
               SizedBox(height: 20),
               StatusBarWidget(
                 "Gesundheit",
                 color: Color.fromARGB(255, 50, 235, 220),
-                value: sunimo.gesundheit,
+                value: sunimo?.gesundheit ?? 0,
               ),
               SizedBox(height: 10),
               StatusBarWidget(
                 "Hunger",
                 color: Color.fromARGB(255, 137, 196, 244),
-                value: sunimo.hunger,
+                value: sunimo?.hunger ?? 0,
               ),
               SizedBox(height: 10),
               StatusBarWidget(
                 "Hygiene",
                 color: Color.fromARGB(255, 240, 161, 218),
-                value: sunimo.hygiene,
+                value: sunimo?.hygiene ?? 0,
               ),
               SizedBox(height: 10),
               StatusBarWidget(
                 "Notdurft",
                 color: Color.fromARGB(255, 247, 239, 173),
-                value: sunimo.notdurft,
+                value: sunimo?.notdurft ?? 0,
               ),
               SizedBox(height: 10),
               StatusBarWidget(
                 "Zuneigung",
                 color: Color.fromARGB(255, 212, 149, 244),
-                value: sunimo.zuneigung,
+                value: sunimo?.zuneigung ?? 0,
               ),
             ],
           ),

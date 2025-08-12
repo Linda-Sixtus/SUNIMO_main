@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Sunimo {
+  final String uniqueId;  // Random unique hash id
   String name;
   int age = 1;
   Widget? appearance; // Look alike (currently)
@@ -14,6 +15,7 @@ class Sunimo {
   // Stats kommen hier auch rein, Gefühle etc.
   Sunimo(
     this.name, {
+    required this.uniqueId,  // Will be set on create
     this.gesundheit = 100,
     this.hunger = 5,
     this.hygiene = 100,
@@ -36,10 +38,3 @@ class Sunimo {
   }
 }
 
-Sunimo ai = Sunimo(
-  "Ai",
-  gesundheit: 90,
-  hunger: 70,
-  notdurft: 44,
-  appearance: Image.asset("assets/SUNIMO_MOTHER_Al.png"),
-);

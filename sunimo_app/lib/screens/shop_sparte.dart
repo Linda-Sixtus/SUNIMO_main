@@ -6,9 +6,9 @@ import 'package:sunimo_app/repositories/shop_categories_repo.dart';
 import 'package:sunimo_app/widgets/product_card_widget.dart';
 
 class ShopSparte extends StatelessWidget {
-  ShopSparte({super.key, required this.category});
+  const ShopSparte({super.key, required this.category});
 
-  ShopCategory category;
+  final ShopCategory category;
 
   @override
   Widget build(BuildContext context) {
