@@ -50,12 +50,12 @@ class SunimoStats extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          sunimo?.name ?? "Sunimo not found",
+                          sunimo?.name ?? "No Sunimo",
                           style: TextStyle(
                             //GoogleFonts.inter
                             //Hier noch fontstyle font und bold
                             color: Color.fromARGB( 255, 156, 128, 193),
-                            fontSize: 45,
+                            fontSize: (sunimo?.name.length ?? 9) < 8 ? 45 : 38,
                           ),
                         ),
                         InkWell(

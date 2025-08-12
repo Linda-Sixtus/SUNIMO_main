@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sunimo_app/repositories/shop_categories_repo.dart';
+import '../widgets/category_helper.dart';
 
 class ShopCategoryPage extends StatelessWidget {
   const ShopCategoryPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+    CategoryHelper categoryHelper = CategoryHelper();
+
     return Scaffold(
       body: Container(
         // BACKGROUND SIMPLE
@@ -119,12 +122,12 @@ class ShopCategoryPage extends StatelessWidget {
                   ),
                 ),
               ),
-
+              SizedBox(height: 30),
               SizedBox(
-                height: 820,
+                height: 800,
                 width: double.infinity,
                 child: ListView(
-                  children: ShopCategoriesRepo().getCategoryItems(),
+                  children: categoryHelper.getCategoryItems(),
                 ),
               ),
             ],

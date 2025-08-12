@@ -23,28 +23,41 @@ class ProductsLocalRepo implements ProductsDatabaseInterface {
         ],
     };
 
+  
+  @override
+  bool create(Product product){
+    return true;
+  }
+  
+  @override
+  bool update(Product product){
+    return true;
+  }
+  
+  @override
+  bool delete(String uniqueId){
+    return true;
+  }
+  
+  @override
+  Product? getById(String uniqueId){
+    return null;
+  }
+
+
+  @override
   List<Product>? getProductsFromCategory(ShopCategory category) {
     return productPool[category.categoryName];
   }
 
+  @override
   Product? getProductByIndex(category, index) {
     return productPool[category.categoryName]?[index];
   }
-    @override
-  bool create(Product product){
-    return true;
-  }
-   @override
-  bool update(Product product){
-    return true;
-  }
-   @override
-  bool delete(String uniqueId){
-    return true;
-  }
-   @override
-  Product? getById(String uniqueId){
-    return null;
+
+  @override
+  int getProductCountOfCategory(ShopCategory category) {
+    return productPool[category.categoryName]?.length ?? 0;
   }
 
 }

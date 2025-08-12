@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sunimo_app/models/shop_category.dart';
-import 'package:sunimo_app/repositories/products_local_repo.dart';
-import 'package:sunimo_app/repositories/shop_categories_repo.dart';
+import 'package:sunimo_app/repositories/products_database_interface.dart';
 import 'package:sunimo_app/widgets/product_card_widget.dart';
+import '../models/settings.dart';
+
 
 class ShopSparte extends StatelessWidget {
-  const ShopSparte({super.key, required this.category});
+  ShopSparte({super.key, required this.category});
 
   final ShopCategory category;
+  //================================================
+  // Here: hand over REPO 
+  //================================================
+  final ProductsDatabaseInterface productsRepo = Settings.productsRepo;
 
   @override
   Widget build(BuildContext context) {
@@ -128,8 +133,9 @@ class ShopSparte extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(height: 30),
               SizedBox(
-                height: 834,
+                height: 804,
                 child: GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2, // 2 Spalten
@@ -137,10 +143,10 @@ class ShopSparte extends StatelessWidget {
                     mainAxisSpacing: 10.0, // Vertikaler Abstand zwischen den Karten
                     childAspectRatio: 0.75, // Seitenverhältnis der Karten (Breite / Höhe)
                   ),
-                  itemCount: ShopCategoriesRepo().getProductCountOfCategory(category),
+                  itemCount: productsRepo.getProductCountOfCategory(category),
                   itemBuilder: (context, index) {
                     return ProductCardWidget(
-                      productItem: ProductsLocalRepo().getProductByIndex(category, index),
+                      productItem: productsRepo.getProductByIndex(category, index),
                     );
                   },
                 ),

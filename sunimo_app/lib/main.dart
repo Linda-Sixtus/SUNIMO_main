@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sunimo_app/models/interiors.dart';
 import 'package:sunimo_app/repositories/characters_database_interface.dart';
-import 'package:sunimo_app/repositories/characters_local_repo.dart';
+import 'package:sunimo_app/repositories/rooms_database_interface.dart';
 import 'package:sunimo_app/screens/sunimo_stats.dart';
 import 'models/rooms.dart';
 import 'models/characters.dart';
 import 'screens/menue.dart';
+import '../models/settings.dart';
 
 List<RoomInterior> roomInteriors = [];
 
@@ -17,7 +19,8 @@ class SunimoApp extends StatelessWidget {
   SunimoApp({super.key, required this.title});
   final String title;
 
-  final CharactersDatabaseInterface sunimoRepo = CharactersLocalRepo();
+  final CharactersDatabaseInterface sunimoRepo = Settings.charactersRepo;
+  final RoomsDatabaseInterface roomsRepo = Settings.roomsRepo;
 
   // This widget is the root of your application.
   @override
@@ -25,6 +28,7 @@ class SunimoApp extends StatelessWidget {
 
     /// For now, get the sunimo with the unique id "123" from the database
     Sunimo? sunimo = sunimoRepo.getById("123");
+    Room? room = roomsRepo.getById("Raum 1");
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -41,12 +45,12 @@ class SunimoApp extends StatelessWidget {
         //  resizeToAvoidBottomInset: true,
         //  backgroundColor: Colors.transparent,
         body: RoomBuilder(
-          rooms["Raum 1"] ?? Room(name: "no room", interiors: []),
+          room ?? Room(uniqueId: "-1", name: "no room", interiors: []),
           key: null,
           children: [
             // MyHomePage(title: title),
             sunimo?.getAppearance() ?? Container(),
-            TopButtonLayer(),
+            TopButtonLayer(sunimo: sunimo,),
             ButtonLayer(),
             // SplashBgImage(child: SplashScreen(title: "Fluxi"))
           ],
@@ -90,7 +94,7 @@ class ButtonLayer extends StatelessWidget {
               color: Colors.white.withOpacity(0.8),
               borderRadius: BorderRadius.circular(18),
               border: Border.all(
-                color: const Color.fromARGB(255, 220, 187, 239,).withOpacity(1.0),
+                color: const Color.fromARGB(255, 220, 187, 239,),
                 width: 3,
               ),
             ),
@@ -104,7 +108,7 @@ class ButtonLayer extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsetsGeometry.all(4),
                       side: BorderSide(
-                        color: const Color.fromARGB( 255, 220, 187, 239,).withOpacity(1.0),
+                        color: const Color.fromARGB( 255, 220, 187, 239,),
                         width: 3,
                       ),
                       shape: RoundedRectangleBorder(
@@ -123,7 +127,7 @@ class ButtonLayer extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsetsGeometry.all(4),
                       side: BorderSide(
-                        color: const Color.fromARGB( 255, 220, 187, 239,).withOpacity(1.0),
+                        color: const Color.fromARGB( 255, 220, 187, 239,),
                         width: 3,
                       ),
                       shape: RoundedRectangleBorder(
@@ -169,9 +173,9 @@ class ButtonLayer extends StatelessWidget {
 class TopButtonLayer extends StatelessWidget {
 
   /// Use the local repo for now
-  CharactersDatabaseInterface sunimoRepo = CharactersLocalRepo();
+  final Sunimo? sunimo;
 
-  TopButtonLayer({super.key});
+  const TopButtonLayer({super.key, required this.sunimo});
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -187,7 +191,7 @@ class TopButtonLayer extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SunimoStats(sunimo: sunimoRepo.getById("123")),
+                      builder: (context) => SunimoStats(sunimo: sunimo),
                     ),
                   );
                 },
@@ -201,7 +205,7 @@ class TopButtonLayer extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Menue(sunimo: sunimoRepo.getById("123"))),
+                    MaterialPageRoute(builder: (context) => Menue(sunimo: sunimo)),
                   );
                 },
                 child: Image.asset(

@@ -4,12 +4,6 @@ import '../models/shop_category.dart';
 
 class ProductsDbRepo implements ProductsDatabaseInterface {
 
-  List<Product>? getProductsFromCategory(ShopCategory category) {
-    return null;
-  }
-  Product? getProductByIndex(category, index) {
-    return null;
-  }
     @override
   bool create(Product product){
     return true;
@@ -25,6 +19,21 @@ class ProductsDbRepo implements ProductsDatabaseInterface {
    @override
   Product? getById(String uniqueId){
     return null;
+  }
+
+  @override
+  List<Product>? getProductsFromCategory(ShopCategory category) {
+    return null;
+  }
+
+  @override
+  Product? getProductByIndex(ShopCategory category, int index) {
+    return null;
+  }
+
+  @override
+  int getProductCountOfCategory(ShopCategory category) {
+    return 0;
   }
 
 }

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sunimo_app/repositories/characters_database_interface.dart';
-import 'package:sunimo_app/repositories/characters_local_repo.dart';
 import 'package:sunimo_app/screens/shop_category_page.dart';
 import 'package:sunimo_app/widgets/menue_card.dart';
 import 'package:sunimo_app/models/characters.dart';

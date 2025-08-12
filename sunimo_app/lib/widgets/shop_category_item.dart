@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sunimo_app/models/shop_category.dart';
+import 'package:sunimo_app/repositories/products_database_interface.dart';
 import 'package:sunimo_app/screens/shop_sparte.dart';
+import '../models/settings.dart';
 
 class ShopCategoryItem extends StatelessWidget {
   final ShopCategory category;
 
-  const ShopCategoryItem({
+  //================================================
+  // HERE: Handover REPO for Products
+  //================================================
+  final ProductsDatabaseInterface productsDbRepo = Settings.productsRepo;
+
+  ShopCategoryItem({
     super.key,
-    required this.category,
+    required this.category
   });
 
   @override
   Widget build(BuildContext context) {
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: Row(
@@ -67,7 +75,6 @@ class ShopCategoryItem extends StatelessWidget {
               },
             )
           ),
-         
         ],
       ),
     );
